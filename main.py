@@ -90,6 +90,23 @@ while end == "yes":
 
     sum = calc(line)
     print(sum)
+    def simle_eq(line):
+    newLine = line.split("=")
+    line = newLine[0]+newLine[1]
+    line_n = ""
+    line_x = ""
+    s = line
+    while line:
+        while line[0] not in op_list:
+            new_res = ''
+            for i, c in enumerate(s):
+            if (c in op_list):
+                res = new_re
+                return (res, s[i:])
+                break
+            else:
+                new_res += c
+                print(new_res)
 
     end = input("Do you want to continue (yes / no): ")
     while end != "yes" and end != "no":
