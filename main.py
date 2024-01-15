@@ -1,28 +1,4 @@
-line = input("Enter something to calculate: ");
-#line = '5-3*6+8*4'
-op_list = ['+','-','*','/','=','(',')']
-res = []
-
-if "=" not in line:
-    line += "="
-line = line.replace(" ", "")
-
-new_line = ""
-power = False
-if line[0] not in op_list:
-    line = "+"+line
-for q in range(len(line)):
-    if line[q] =="^":
-        for z in range(int(line[q+1])-1):
-            new_line += "*"+line[q-1]
-        power = True
-    else:
-        if power:
-            power = False
-        else:
-            new_line = new_line+line[q]
-line = new_line
-new_line = ""
+end = "yes"
 
 
 def build_int(s):
@@ -44,12 +20,12 @@ def calc(line):
         if line[0] == '=':
             break
 
-        #if line[0] not in op_list and
+        # if line[0] not in op_list and
         if line[1] == '(':
             if line[2] not in op_list:
                 temp = calc("+" + line[2:])
             else:
-                 temp = calc(line[2:])
+                temp = calc(line[2:])
             if line[0] == '+':
                 res.append(temp[0])
             if line[0] == '-':
@@ -68,10 +44,8 @@ def calc(line):
                 sum = sum + res.pop()
             return (sum, line[1:])
 
-
         print(f'line = {line}')
         temp = build_int(line[1:])
-
 
         if line[0] == '+':
             res.append(temp[0])
@@ -86,17 +60,37 @@ def calc(line):
         sum = sum + res.pop()
     return (sum, line[0:])
 
-sum = calc(line)
-print(sum)
-def simle_eq(line):
-    line_n = ""
-    line_x = ""
 
-    while line:
-        if line[0] == '=':
-            break
-        if line[1] not in op_list:
-            build_int(line)
-            line_x += build_int(line)
-        else
+while end == "yes":
+    line = input("Enter something to calculate: ");
+    # line = '5-3*6+8*4'
+    op_list = ['+', '-', '*', '/', '=', '(', ')']
+    res = []
 
+    if "=" not in line:
+        line += "="
+    line = line.replace(" ", "")
+
+    new_line = ""
+    power = False
+    if line[0] not in op_list:
+        line = "+" + line
+    for q in range(len(line)):
+        if line[q] == "^":
+            for z in range(int(line[q + 1]) - 1):
+                new_line += "*" + line[q - 1]
+            power = True
+        else:
+            if power:
+                power = False
+            else:
+                new_line = new_line + line[q]
+    line = new_line
+    new_line = ""
+
+    sum = calc(line)
+    print(sum)
+
+    end = input("Do you want to continue (yes / no): ")
+    while end != "yes" and end != "no":
+        end = input("Do you want to continue (yes / no): ")
