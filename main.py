@@ -1,6 +1,8 @@
 end = "yes"
 
-
+#takes a string from 1 opreytor to the next 1 and convert and return it to float
+#input: the string
+#output:a float number
 def build_int(s):
     new_res = ''
     for i, c in enumerate(s):
@@ -12,7 +14,9 @@ def build_int(s):
             new_res += c
             print(new_res)
 
-
+#takes eq witout x and calculate the the line
+#input: the exsrsise
+#output: the answer to the the exsrsise
 def calc(line):
     res = []
     sum = 0
@@ -89,25 +93,29 @@ while end == "yes":
     new_line = ""
 
     sum = calc(line)
-    print(sum)
-    def simle_eq(line):
-    newLine = line.split("=")
-    line = newLine[0]+newLine[1]
-    line_n = ""
-    line_x = ""
-    s = line
-    while line:
-        while line[0] not in op_list:
-            new_res = ''
-            for i, c in enumerate(s):
-            if (c in op_list):
-                res = new_re
-                return (res, s[i:])
-                break
-            else:
-                new_res += c
-                print(new_res)
+    print(sum)#print the resolt
 
+    #take eq and and seprate the line into 2 strings 1 for the x and the secend for anormal number
+    #input: the eq
+    #output the answer
+    #currntly dosent work;
+    def simle_eq(line):
+        newLine = line.split("=")
+        line = newLine[0]+newLine[1]
+        line_n = ""
+        line_x = ""
+        s = line
+        while line:
+            while line[0] not in op_list:
+                new_res = ''
+                for i, c in enumerate(s):
+                if (c in op_list):
+                    res = new_re
+                    return (res, s[i:])
+                    break
+                else:
+                    new_res += c
+                    print(new_res)
     end = input("Do you want to continue (yes / no): ")
     while end != "yes" and end != "no":
-        end = input("Do you want to continue (yes / no): ")
+    end = input("Do you want to continue (yes / no): ")
